@@ -9,6 +9,7 @@ const PORT = 3000
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
 app.use('/loveit', require('./controllers/loveit'))
+app.use('/leaveit', require('./controllers/leaveit'))
 
 // GET route for /
 app.get('/', (req, res) => {

@@ -1,12 +1,15 @@
 // initial express app setup
 const express = require('express')
+const ejs = require('ejs')
 const app = express()
 const PORT = 3000
 
+// MIDDLEWARE SETUP
+app.set('view engine', 'ejs')
+
 // GET route for /
 app.get('/', (req, res) => {
-    res.sendFile(__dirname+'/views/index.html')
-    // res.sendFile to render index.html
+    res.render('index', { name: 'Anna Zocher' })
 })
 
 // GET route for /about

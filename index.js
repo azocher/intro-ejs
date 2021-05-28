@@ -8,15 +8,11 @@ const PORT = 3000
 // MIDDLEWARE SETUP
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
+app.use('/loveit', require('./controllers/loveit'))
 
 // GET route for /
 app.get('/', (req, res) => {
     res.render('index', { name: 'Anna Zocher' })
-})
-
-app.get('/foods', (req, res) => {
-    let faveFoods = ['Boba', 'Fried Chicken Sandwhich', 'Pizza']
-    res.render('loveit/foods.ejs', { foods: faveFoods })
 })
 
 // open up port for app to be listening on

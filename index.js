@@ -1,25 +1,22 @@
 // initial express app setup
 const express = require('express')
 const ejs = require('ejs')
+const ejsLayouts = require('express-ejs-layouts')
 const app = express()
 const PORT = 3000
 
 // MIDDLEWARE SETUP
 app.set('view engine', 'ejs')
+app.use(ejsLayouts)
 
 // GET route for /
 app.get('/', (req, res) => {
     res.render('index', { name: 'Anna Zocher' })
 })
 
-// GET route for /about
-app.get('/about', (req, res) => {
-    res.send("👾")
-})
-
-// GET route for /blog for blog posts
-app.get('/blog', (req, res) => {
-    res.send("🐳")
+app.get('/foods', (req, res) => {
+    let faveFoods = ['Boba', 'Fried Chicken Sandwhich', 'Pizza']
+    res.render('loveit/foods.ejs', { foods: faveFoods })
 })
 
 // open up port for app to be listening on

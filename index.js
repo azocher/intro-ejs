@@ -5,7 +5,7 @@ const PORT = 3000
 
 // GET route for /
 app.get('/', (req, res) => {
-    res.send("🐛")
+    res.sendFile(__dirname+'/views/index.html')
     // res.sendFile to render index.html
 })
 
